@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
 import MainClock from './components/mainClock';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './theme';
 
 function App() {
   return (
     <div>
-      <h1> Countdown Timer</h1>
-      <MainClock />
+      <ThemeProvider theme={theme}>
+        <MainClock />
+      </ThemeProvider>
     </div>
   );
 }
