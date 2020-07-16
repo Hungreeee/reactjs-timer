@@ -8,6 +8,8 @@ import { Button, Grid } from '@material-ui/core';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import PauseIcon from '@material-ui/icons/Pause';
 
+import complete from '../sound/complete.mp3';
+
 const useStyles = makeStyles((theme) => ({
   text: {
     fontSize: '150px',
@@ -42,13 +44,17 @@ const useStyles = makeStyles((theme) => ({
 
 function Timer(props) {
   const { refCallback, total } = props;
-
+  function handleComplete() {
+    var audio = new Audio(complete);
+    audio.play();
+  }
   return (
     <div>
       <Countdown
         date={Date.now() + total}
         renderer={rendererForTimer}
         ref={refCallback}
+        onComplete={handleComplete}
       />
     </div>
   );
