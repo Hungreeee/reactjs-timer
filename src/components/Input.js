@@ -51,11 +51,11 @@ export default function Input() {
     setTotal((parseInt(hour) * 3600 + parseInt(minute) * 60 + parseInt(second)) * 1000);
   }
 
-  const handleHide = (e) => {
+  const handleHide = () => {
     setShowRes(false)
   }
 
-  const refreshPage = (e) => {
+  const refreshPage = () => {
     window.location.reload(false);
   }
 
@@ -103,6 +103,7 @@ export default function Input() {
                 label="Hour"
                 variant="outlined"
                 onChange={e => setHour(e.target.value)}
+                type='number'
                 className={classes.inputField}
               />
             </Grid>
@@ -116,6 +117,7 @@ export default function Input() {
                 variant="outlined"
                 onChange={e => setMinute(e.target.value)}
                 className={classes.inputField}
+                type='number'
               />
             </Grid>
             <Grid item>
@@ -128,6 +130,7 @@ export default function Input() {
                 variant="outlined"
                 onChange={e => setSecond(e.target.value)}
                 className={classes.inputField}
+                type='number'
               />
             </Grid>
           </Grid>
